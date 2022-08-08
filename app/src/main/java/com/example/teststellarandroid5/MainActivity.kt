@@ -10,6 +10,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import com.example.teststellarandroid5.databinding.ActivityMainBinding
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 import org.stellar.sdk.Server
 
@@ -31,10 +33,13 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         fun stellarTest() {
+            GlobalScope.launch {
 //            Using existing Stellar account on Testnet with XLM balance
-            val stellarAddress = "GAMQTINWD3YPP3GLTQZ4M6FKCCSRGROQLIIRVECIFC6VEGL5F64CND22"
-            val server = Server("https://horizon-testnet.stellar.org")
-            val account = server.accounts().account(stellarAddress)
+                val stellarAddress = "GAMQTINWD3YPP3GLTQZ4M6FKCCSRGROQLIIRVECIFC6VEGL5F64CND22"
+                val server = Server("https://horizon-testnet.stellar.org")
+                val account = server.accounts().account(stellarAddress)
+                println(account.toString())
+            }
         }
 
         binding.fab.setOnClickListener { view ->

@@ -46,6 +46,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-//    IDE doesn't complain about the version 0.34.2, but the Horizon call still fails
+//    Version 0.36.0 works for API 29+, but not older
     implementation 'com.github.stellar:java-stellar-sdk:0.36.0'
 }
